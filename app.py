@@ -27,7 +27,8 @@ class BoogaContext:
             self.histories[channel_id] = []
         if message["text"].lower() == "reset":
             self.histories[channel_id] = []
-        self.histories[channel_id].append({"role": "user", "content": message["text"]})
+        else:
+            self.histories[channel_id].append({"role": "user", "content": message["text"]})
     
     def add_generated(self, channel_id, content):
         if channel_id not in self.histories:
